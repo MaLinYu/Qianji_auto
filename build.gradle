@@ -5,7 +5,7 @@ buildscript {
 
     repositories {
         google()
-        jcenter()
+        mavenCentral()
         maven { url 'https://jitpack.io' }
     }
     dependencies {
@@ -20,8 +20,21 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
-
+        mavenCentral()
+        maven {
+            url 'https://api.xposed.info/'
+            content { includeGroup 'de.robv.android.xposed' }
+        }
+        // These pinned legacy artifacts were published only to JCenter.
+        maven {
+            url 'https://maven.aliyun.com/repository/jcenter'
+            content {
+                includeGroup 'me.jessyan'
+                includeGroup 'com.contrarywind'
+                includeGroup 'com.thegrizzlylabs.sardine-android'
+                includeGroup 'com.github.xiaofeidev'
+            }
+        }
         maven { url 'https://jitpack.io' }
 
     }

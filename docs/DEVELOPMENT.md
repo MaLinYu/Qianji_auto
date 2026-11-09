@@ -73,7 +73,12 @@ adb logcat --pid=$appPid -v threadtime
 当前仓库使用 Gradle 7.2、Android Gradle Plugin 4.1.3 和 Kotlin 1.4.31。
 CI 为旧构建链使用 JDK 8；Android SDK 命令行工具另用 JDK 17。
 本地 Android Studio 的 Gradle JDK 也应选择 JDK 8，不直接使用新版 IDE 自带的 JDK 21/25。
-Android SDK 需要 Platform 30、31 和 Build-Tools 30.0.3。
+Android SDK 需要 Platform 30、31 和 Build-Tools 29.0.2（旧 AGP 默认版本）、30.0.3。
+CI 使用独立 SDK 目录，避免旧 AGP 扫描 runner 预装的新预览平台。
+
+构建仓库优先使用 Google Maven、Maven Central 和 JitPack；Xposed API 使用官方仓库。
+仅限四个旧依赖组使用阿里云 JCenter 镜像。SmartRefreshLayout 1.1.5 的 JitPack 构建已失效，
+改用同项目 1.1.6；作者这两个标签间的变更限于构建/发布配置和示例测试。
 
 在 SDK Manager 安装这些组件，并通过 IDE 或被 gitignore 排除的 `local.properties` 配置 SDK 路径。
 Windows 路径示例：
