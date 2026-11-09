@@ -53,6 +53,12 @@
 
 
 
+## 本分支开发
+
+本分支优先恢复钱迹记账链路。手机日志、断点调试、现有适配范围和自动构建说明见 [开发说明](docs/DEVELOPMENT.md)。
+
+推送代码或更新 PR 后，GitHub Actions 会自动编译 Debug APK，可在 Actions 对应运行的 Artifacts 中下载。
+
 ## 📖 文字教程
 
 [点击开始教程](https://auto.ankio.net)
